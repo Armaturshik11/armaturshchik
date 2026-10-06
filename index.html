@@ -926,7 +926,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
           <ul class="xprules">
             <li>Монета, собранная на трассе <b>+2 XP</b></li>
             <li>Пройденный этап (1 / 2 / 3) <b>+100 / 200 / 300 XP</b></li>
-            <li>Чертёж доставлен Харитонову <b>+600 XP</b></li>
+            <li>Чертёж доставлен руководителю проекта <b>+600 XP</b></li>
             <li>Уничтоженная клякса <b>+10 XP</b></li>
             <li>Уровень «Принтера» (1 / 2 / 3 / босс) <b>+150 / 300 / 450 / 600 XP</b></li>
             <li>Пачка арматуры в тумане / доставка к каркасу <b>+5 / +15 XP</b></li>
@@ -1038,7 +1038,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
         <div class="lcard l1"><span class="lnum">1</span><div><b>Трасса</b><p>Опоры, арматура, трубопроводы и заказчик со своими «Когда сдача?!». В конце — входной контроль.</p><span class="lmeta">450 м · согласует входной контроль</span></div></div>
         <div class="lcard l2"><span class="lnum">2</span><div><b>Офис</b><p>Катящиеся кресла, столы, кулеры, лампы и коллеги с кофе. Темп выше, препятствия идут парами. В конце — ПТО.</p><span class="lmeta">450 м · согласует ПТО</span></div></div>
         <div class="lcard l3"><span class="lnum">3</span><div><b>Стройплощадка</b><p>Конусы, блоки, тачки, грузы на кранах и строители. Последние 100 м — вверх ногами. В конце — зам. директора.</p><span class="lmeta">450 м · согласует зам. директора</span></div></div>
-        <div class="lcard l4"><span class="lnum">4</span><div><b>Цех и длинномер</b><p>Станки, сварщики и кран-балка, затем поездка на длинномере сквозь поток техники. В конце — Е. Харитонов.</p><span class="lmeta">620 м · согласует Е. Харитонов</span></div></div>
+        <div class="lcard l4"><span class="lnum">4</span><div><b>Цех и длинномер</b><p>Станки, сварщики и кран-балка, затем поездка на длинномере сквозь поток техники. В конце — руководитель проекта.</p><span class="lmeta">620 м · согласует рук. проекта</span></div></div>
       </div>
     </section>
 
@@ -1272,7 +1272,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
       signs:['План-график','Совещание в 10:00','Охрана труда','ПТО → 3 этаж','Сдача в пятницу','Не забудь печать'] },
     { key:'site', name:'Стройплощадка', goal:'Зам. директора', len:450, spd:7.2, gapK:0.88, pair:0.25, moveK:1.35, drop:0, small:'cone', news:'Сложнее: темп ещё выше, на последних 100 м мир переворачивается.', cp:'Зам. директора завизировал', kinds:[['cone',3],['block',2],['r',2],['barrow',2],['beam',2],['builder',2],['g',1]],
       signs:['Каска обязательна','Опасная зона','Курская АЭС-2','Монтаж ведёт бригада № 1','Проход закрыт'] },
-    { key:'shop', name:'Цех', goal:'Харитонов', len:620, shopLen:220, spd:7.8, gapK:0.84, pair:0.3, moveK:1.5, drop:0, small:'crate', news:'Финал: цех, а потом длинномер сквозь поток строительной техники.', cp:'', kinds:[['lathe',3],['crate',2],['hook',2],['machinist',2],['weld',2],['cart',2]],
+    { key:'shop', name:'Цех', goal:'Рук. проекта', len:620, shopLen:220, spd:7.8, gapK:0.84, pair:0.3, moveK:1.5, drop:0, small:'crate', news:'Финал: цех, а потом длинномер сквозь поток строительной техники.', cp:'', kinds:[['lathe',3],['crate',2],['hook',2],['machinist',2],['weld',2],['cart',2]],
       signs:['Цех № 2','Сварочный участок','Береги руки','Работаем без травм','ОТК'] },
   ];
   const BW = 120, CARW = 64, LAMBOW = 78;
@@ -1887,7 +1887,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
     let body = C.surface, band1 = C.accent, band2 = C.accent2, title = 'ВХ. КОНТРОЛЬ', sub = 'ВХОДНОЙ КОНТРОЛЬ ДОКУМЕНТАЦИИ', door = C.ink, txt = C.onaccent;
     if (key === 'office'){ body = pal('office').wall2; title = 'ПТО'; sub = 'ПРОИЗВОДСТВЕННО-ТЕХНИЧЕСКИЙ ОТДЕЛ'; band1 = '#2f8f83'; band2 = '#4fb3a6'; door = '#a9cfe9'; txt = '#ffffff'; }
     if (key === 'site'){ body = '#2f7dd1'; title = 'ЗАМ. ДИРЕКТОРА'; sub = 'ШТАБ СТРОИТЕЛЬСТВА'; band1 = C.safety; band2 = '#ffb347'; door = '#173f6b'; txt = '#2a1a0a'; }
-    if (key === 'shop'){ body = pal('shop').wall2; title = 'Е. ХАРИТОНОВ'; sub = 'КАБИНЕТ РУКОВОДИТЕЛЯ'; band1 = '#d4a017'; band2 = '#ffe08a'; door = '#3a2a12'; txt = '#1b1b1b'; }
+    if (key === 'shop'){ body = pal('shop').wall2; title = 'РУК. ПРОЕКТА'; sub = 'КАБИНЕТ РУКОВОДИТЕЛЯ'; band1 = '#d4a017'; band2 = '#ffe08a'; door = '#3a2a12'; txt = '#1b1b1b'; }
     // finish posts
     const gx = bx - 92; ctx.fillStyle = "#222"; ctx.fillRect(gx, GROUND - 74, 3, 74); ctx.fillRect(gx + 34, GROUND - 74, 3, 74);
     for (let i = 0; i < 6; i++){ ctx.fillStyle = i % 2 ? '#ffffff' : band1; ctx.fillRect(gx + 3 + i * 5.2, GROUND - 74, 5.2, 8); }
@@ -1988,7 +1988,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
     const reach = (e.ph === 'stamp' && e.t > 6 && e.t < 22) || e.ph === 'take' || e.ph === 'give' ? 8 : 5;
     person(e.nx, GROUND - 30, Object.assign({ t: e.nph || 0, walk: walking, face, reach }, look));
     if (lvl === 3){
-      ctx.font = '600 7px "Onest", system-ui, sans-serif'; ctx.fillStyle = '#d4a017'; ctx.textAlign = 'center'; ctx.fillText('Харитонов Е.', e.nx + 7, GROUND - 38); ctx.textAlign = 'left';
+      ctx.font = '600 7px "Onest", system-ui, sans-serif'; ctx.fillStyle = '#d4a017'; ctx.textAlign = 'center'; ctx.fillText('Рук. проекта', e.nx + 7, GROUND - 38); ctx.textAlign = 'left';
       if (e.ph === 'read') sayBubble(e.nx + 7, GROUND - 62, '…хм', '#1d2433');
       if (e.ph === 'reject' || e.ph === 'give' || e.ph === 'faint') sayBubble(e.nx + 7, GROUND - 62, 'Не согласовано!', '#e5484d');
       if (e.paper === 'npc' || e.ph === 'give'){
@@ -2304,7 +2304,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
     ctx.fillStyle = '#111'; rr(ux + 20, gy - 33, 3, 6, 1); ctx.fill();
     // cocktail
     ctx.fillStyle = '#ff7aa8'; ctx.beginPath(); ctx.moveTo(ux + 76, gy - 16); ctx.lineTo(ux + 84, gy - 16); ctx.lineTo(ux + 80, gy - 10); ctx.fill(); ctx.fillRect(ux + 79.4, gy - 10, 1.2, 6);
-    ctx.font = '600 7px "Onest", system-ui, sans-serif'; ctx.fillStyle = '#d4a017'; ctx.textAlign = 'center'; ctx.fillText('Харитонов Е.', ux + 34, gy + 10); ctx.textAlign = 'left';
+    ctx.font = '600 7px "Onest", system-ui, sans-serif'; ctx.fillStyle = '#d4a017'; ctx.textAlign = 'center'; ctx.fillText('Рук. проекта', ux + 34, gy + 10); ctx.textAlign = 'left';
     // speech bubble to the director
     if (beach && beach.shown){
       const n = Math.max(0, Math.floor((beach.t - 40) * 0.7));
@@ -3151,7 +3151,7 @@ td .lvl{margin-left:6px;vertical-align:1px}
 
   // ---------- achievements ----------
   var ACH = [
-    { id: 'first_finish', ic: '📜', name: 'Первая подпись', desc: 'Донеси чертёж до Харитонова' },
+    { id: 'first_finish', ic: '📜', name: 'Первая подпись', desc: 'Донеси чертёж до руководителя проекта' },
     { id: 'nohit', ic: '✋', name: 'Без царапин', desc: 'Пройди этап забега без единого удара' },
     { id: 'fast_run', ic: '⚡', name: 'Скоростной монтаж', desc: 'Доставь чертёж быстрее 4:00' },
     { id: 'coins300', ic: '🪙', name: 'Копилка', desc: 'Собери 300 монет на трассе' },
