@@ -1,6 +1,6 @@
 // «Арматурщик в тумане»: работа без интернета.
 // Поменяй VERSION после каждого обновления сайта, чтобы у игроков подтянулась новая версия.
-const VERSION = 'lm-v9';
+const VERSION = 'lm-v10';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
